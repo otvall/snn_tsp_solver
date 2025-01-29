@@ -8,11 +8,15 @@ class PathData:
         self.path = np.array([-1] * numb_of_cities)
         self.distance = -1
         self.max_distance = -1
+        self.min_distance = float("inf")
         self.path_matrix = path_matrix
 
     def update_distance(self):
         self.distance = self.current_distance()
-        self.max_distance = max(self.distance, self.distance)
+        self.max_distance = max(self.max_distance, self.distance)
+        self.min_distance = min(
+            self.min_distance, self.distance if self.distance != -1 else float("inf")
+        )
 
     def current_distance(self) -> int:
         total_length = 0

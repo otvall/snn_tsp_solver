@@ -62,7 +62,7 @@ class TSPModel:
                     out_neurons=numb_of_cities,
                     num_winners=1,
                     delay_shift=False,
-                    self_excitation=0.7,
+                    self_excitation=0.2,
                 )
                 for _ in range(numb_of_cities)
             ]
