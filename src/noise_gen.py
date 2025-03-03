@@ -20,7 +20,10 @@ class NoiseGenerator:
 
     @staticmethod
     def path_noise(distance: int, max_distance: int) -> float:
-        return distance / max_distance if max_distance != -1 else -1
+        if distance != -1 and max_distance != -1:
+            return distance / max_distance if max_distance != -1 else 1
+        else:
+            return 1.
 
     def gen_noise(self, path_data: PathData, time: int) -> torch.Tensor:
         return (
